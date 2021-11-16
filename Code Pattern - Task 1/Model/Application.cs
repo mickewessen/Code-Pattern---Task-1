@@ -29,7 +29,11 @@ namespace Code_Pattern___Task_1.Model
 
         public void Run()
         {
-            
+            List<ICustomer> customerList = new();
+            customerList = PopulateDummyDataCustomer(customerList);
+            List<IAnimal> animalList = new();
+            animalList = PopulateDummyDataAnimal(animalList);
+          
             bool showMenu = true;
             while (showMenu)
             {
@@ -44,22 +48,21 @@ namespace Code_Pattern___Task_1.Model
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        customer.RegisterCustomer();
+                        customerList = customer.RegisterCustomer(customerList);
                         return true;
 
                     case "2":
-                        animal.RegisterAnimal(); 
+                        animalList = animal.RegisterAnimal(animalList); 
                         return true;
 
                     case "3":
-                        customerData.ReturnCustomerData();
+                        customerData.ReturnCustomerData(customerList);
                         return true;
 
                     case "4":
-                        animalData.ReturnAnimalData();
+                        animalData.ReturnAnimalData(animalList);
                         return true;
-
-                    case "5":   
+                    case "5":
                         return true;
                     case "6":
                         return true;
@@ -68,16 +71,26 @@ namespace Code_Pattern___Task_1.Model
                     case "8":
                         return true;
                     case "9":
-                        return true;
-                    case "10":
                         recieptData.ReturnRecieptData();
                         return true;
-                    case "11":
+                    case "10":
                         return false;
                     default:
                         return true;
                 }
             }
+        }
+
+        private List<ICustomer> PopulateDummyDataCustomer(List<ICustomer> customerList)
+        {
+            customerList.Add(new Customer { FirstName = "Micke", LastName = "Wessén", PhoneNumber = 0738142090});
+            return customerList;
+        }
+
+        private List<IAnimal> PopulateDummyDataAnimal(List<IAnimal> animalList)
+        {
+            animalList.Add(new Animal { Name = "Maskot" });
+            return animalList;
         }
     }
 }

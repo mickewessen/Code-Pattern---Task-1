@@ -9,14 +9,8 @@ namespace Code_Pattern___Task_1.Model
 {
     public class DummyCustomerData
     {
-        public void ReturnCustomerData()
-        {
-            List<ICustomer> customerList = new List<ICustomer>
-            {
-                new Customer {FirstName = "Micke", LastName = "Wessén", PhoneNumber = 0738142090/*, customerAnimal={ID=1,Name="test"}*/},
-                new Customer { FirstName = "Samuel", LastName = "Wessén", PhoneNumber = 0738142091/*, customerAnimal={ ID=2, Name="test2"} */},
-                new Customer { FirstName = "Daniel", LastName = "Wessén", PhoneNumber = 0738142092/*, customerAnimal={ ID=3, Name="test3"} */}
-            };
+        public void ReturnCustomerData(List<ICustomer> customerList)
+        {           
 
             foreach (var customer in customerList)
             {

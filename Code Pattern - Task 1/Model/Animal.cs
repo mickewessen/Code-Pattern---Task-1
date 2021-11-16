@@ -10,23 +10,20 @@ namespace Code_Pattern___Task_1.Model
     public class Animal : IAnimal
     {
         public string Name { get; set; }
-        
-        public void RegisterAnimal()
+
+        public List<IAnimal> RegisterAnimal(List<IAnimal> animals)
         {
-            List<IAnimal> animalList = new List<IAnimal>();
+            //Register and save a new Animal to a list   
             {
                 var animal = new Animal();
-                Console.WriteLine("Enter your first name");
-                animal.Name = Console.ReadLine();
-                animalList.Add(animal);
-                Console.WriteLine("Animal saved - press any key");
-                Console.Read();
-            }
 
-            //Console.WriteLine("Enter the animals name");
-            //Console.ReadLine();
-            //Console.WriteLine("Animal saved - press any key");
-            //Console.Read();
+                Console.WriteLine("Enter the pets name");
+                animal.Name = Console.ReadLine();
+                animals.Add(animal);
+            }
+            Console.WriteLine("Animal saved - press any key");
+            Console.Read();
+            return animals;
         }
 
     }

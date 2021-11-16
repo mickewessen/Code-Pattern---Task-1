@@ -9,19 +9,12 @@ namespace Code_Pattern___Task_1.Model
 {
     public class DummyAnimalData
     {
-        public void ReturnAnimalData()
+        public void ReturnAnimalData(List<IAnimal> animalList)
         {
-            List<IAnimal> animalList = new List<IAnimal>()
-            {
-                new Animal { Name = "Maskot" },
-                new Animal { Name = "Pelle" },
-                new Animal { Name = "Stefan" },
-            };
-
             foreach (var animal in animalList)
-            {
+            {                
                 Console.WriteLine($"{animal.Name}");
-            }
+            }            
             Console.Read();
         }
     }

@@ -10,10 +10,7 @@ namespace Code_Pattern___Task_1.Interfaces
     {
         public string Name { get; set; }
 
-        public void RegisterAnimal()
-        {
-
-        }
+        public List<IAnimal> RegisterAnimal(List<IAnimal> animals);
 
     }
 }

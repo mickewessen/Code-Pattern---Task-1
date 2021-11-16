@@ -12,8 +12,8 @@ namespace Code_Pattern___Task_1.Interfaces
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int PhoneNumber { get; set; }
-        //public IAnimal customerAnimal { get; set; }
-        public void RegisterCustomer();
+        public List<IAnimal> customerAnimals { get; set; }
+        public List<ICustomer> RegisterCustomer(List<ICustomer> customers);
 
     }
 }
