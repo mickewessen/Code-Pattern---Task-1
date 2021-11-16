@@ -8,12 +8,12 @@ namespace Code_Pattern___Task_1.Interfaces
 {
     public interface IAnimal
     {
-        public int ID { get; set; }
         public string Name { get; set; }
 
         public void RegisterAnimal()
         {
 
         }
+
     }
 }

@@ -9,11 +9,10 @@ namespace Code_Pattern___Task_1.Interfaces
 {
     public interface ICustomer
     {
-        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int PhoneNumber { get; set; }
-        public IAnimal customerAnimal { get; set; }
+        //public IAnimal customerAnimal { get; set; }
         public void RegisterCustomer();
 
     }

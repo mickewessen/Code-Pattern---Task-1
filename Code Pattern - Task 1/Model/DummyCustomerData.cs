@@ -13,14 +13,14 @@ namespace Code_Pattern___Task_1.Model
         {
             List<ICustomer> customerList = new List<ICustomer>
             {
-                new Customer { ID = 1, FirstName = "Micke", LastName = "Wessén", PhoneNumber = 0738142090/*, customerAnimal={ID=1,Name="test"}*/},
-                new Customer { ID = 2, FirstName = "Samuel", LastName = "Wessén", PhoneNumber = 0738142091/*, customerAnimal={ ID=2, Name="test2"} */},
-                new Customer { ID = 3, FirstName = "Daniel", LastName = "Wessén", PhoneNumber = 0738142092/*, customerAnimal={ ID=3, Name="test3"} */}
+                new Customer {FirstName = "Micke", LastName = "Wessén", PhoneNumber = 0738142090/*, customerAnimal={ID=1,Name="test"}*/},
+                new Customer { FirstName = "Samuel", LastName = "Wessén", PhoneNumber = 0738142091/*, customerAnimal={ ID=2, Name="test2"} */},
+                new Customer { FirstName = "Daniel", LastName = "Wessén", PhoneNumber = 0738142092/*, customerAnimal={ ID=3, Name="test3"} */}
             };
 
             foreach (var customer in customerList)
             {
-                Console.WriteLine($"{customer.ID} - {customer.FirstName} {customer.LastName} - {customer.PhoneNumber}");
+                Console.WriteLine($"{customer.FirstName} {customer.LastName} - {customer.PhoneNumber}");
             }
             Console.Read();
         }

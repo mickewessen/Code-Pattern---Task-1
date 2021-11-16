@@ -9,13 +9,14 @@ namespace Code_Pattern___Task_1.Model
 {
     public class Application : IApplication
     {
-        public Application(IMenu menu, IAnimal animal, ICustomer customer, DummyCustomerData customerData, DummyAnimalData animalData)
+        public Application(IMenu menu, IAnimal animal, ICustomer customer, DummyCustomerData customerData, DummyAnimalData animalData, DummyRecieptData recieptData)
         {
             this.menu = menu;
             this.animal = animal;
             this.customer = customer;
             this.customerData = customerData;
             this.animalData = animalData;
+            this.recieptData = recieptData;
         }
 
         public ICustomer customer { get; set; }
@@ -23,6 +24,7 @@ namespace Code_Pattern___Task_1.Model
         public IAnimal animal { get; set; }
         public DummyCustomerData customerData { get; set; }
         public DummyAnimalData animalData { get; set; }
+        public DummyRecieptData recieptData { get; set; }
 
 
         public void Run()
@@ -68,6 +70,7 @@ namespace Code_Pattern___Task_1.Model
                     case "9":
                         return true;
                     case "10":
+                        recieptData.ReturnRecieptData();
                         return true;
                     case "11":
                         return false;

@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Code_Pattern___Task_1.Interfaces
+{
+    public interface IAnimalCheckedOut
+    {
+        public DateTime CheckedOutDate { get; set; }
+        public ICustomer CheckedOutByCustomer { get; set; }
+        public bool CheckedOutAnimal(IAnimal animal);
+    }
+}

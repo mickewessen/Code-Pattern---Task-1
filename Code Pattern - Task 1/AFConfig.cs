@@ -19,11 +19,10 @@ namespace Code_Pattern___Task_1
             builder.RegisterType<Customer>().As<ICustomer>();
             builder.RegisterType<Animal>().As<IAnimal>();
             builder.RegisterType<Menu>().As<IMenu>();
+            builder.RegisterType<Reciept>().As<IReciept>();
             builder.RegisterType<DummyCustomerData>().As<DummyCustomerData>();
             builder.RegisterType<DummyAnimalData>().As<DummyAnimalData>();
-
-
-
+            builder.RegisterType<DummyRecieptData>().As<DummyRecieptData>();
 
             return builder.Build();
         }
