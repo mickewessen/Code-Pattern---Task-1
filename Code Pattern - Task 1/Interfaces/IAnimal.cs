@@ -9,8 +9,7 @@ namespace Code_Pattern___Task_1.Interfaces
     public interface IAnimal
     {
         public string Name { get; set; }
-
-        public List<IAnimal> RegisterAnimal(List<IAnimal> animals);
+        public string TypeOfAnimal { get; set; }
 
     }
 }

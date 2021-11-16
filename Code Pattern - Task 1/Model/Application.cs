@@ -9,30 +9,34 @@ namespace Code_Pattern___Task_1.Model
 {
     public class Application : IApplication
     {
-        public Application(IMenu menu, IAnimal animal, ICustomer customer, DummyCustomerData customerData, DummyAnimalData animalData, DummyRecieptData recieptData)
+        public Application(IMenu menu, IAnimal animal, ICustomer customer, DummyData dummydata, ReturnData returnData, CustomerService customerService, AnimalService animalService)
         {
             this.menu = menu;
             this.animal = animal;
             this.customer = customer;
-            this.customerData = customerData;
-            this.animalData = animalData;
-            this.recieptData = recieptData;
+            this.dummydata = dummydata;
+            this.returnData = returnData;
+            this.customerService = customerService;
+            this.animalService = animalService;
         }
 
         public ICustomer customer { get; set; }
+        public CustomerService customerService { get; set; }
         public IMenu menu { get; set; }
         public IAnimal animal { get; set; }
-        public DummyCustomerData customerData { get; set; }
-        public DummyAnimalData animalData { get; set; }
-        public DummyRecieptData recieptData { get; set; }
+        public AnimalService animalService { get; set; }
+        public DummyData dummydata { get; set; }
+        public ReturnData returnData { get; set; }
 
 
         public void Run()
         {
             List<ICustomer> customerList = new();
-            customerList = PopulateDummyDataCustomer(customerList);
+            customerList = dummydata.PopulateDummyDataCustomer(customerList);
             List<IAnimal> animalList = new();
-            animalList = PopulateDummyDataAnimal(animalList);
+            animalList = dummydata.PopulateDummyDataAnimal(animalList);
+            List<IReciept> recieptList = new();
+            recieptList = dummydata.PopulateDummyDataReciept(recieptList);
           
             bool showMenu = true;
             while (showMenu)
@@ -48,20 +52,21 @@ namespace Code_Pattern___Task_1.Model
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        customerList = customer.RegisterCustomer(customerList);
+                        customerList = customerService.RegisterCustomer(customerList);
                         return true;
 
                     case "2":
-                        animalList = animal.RegisterAnimal(animalList); 
+                        animalList = animalService.RegisterAnimal(animalList); 
                         return true;
 
                     case "3":
-                        customerData.ReturnCustomerData(customerList);
+                        returnData.ReturnCustomerData(customerList);
                         return true;
 
                     case "4":
-                        animalData.ReturnAnimalData(animalList);
+                        returnData.ReturnAnimalData(animalList);
                         return true;
+
                     case "5":
                         return true;
                     case "6":
@@ -71,7 +76,7 @@ namespace Code_Pattern___Task_1.Model
                     case "8":
                         return true;
                     case "9":
-                        recieptData.ReturnRecieptData();
+                        returnData.ReturnRecieptData(recieptList);
                         return true;
                     case "10":
                         return false;
@@ -81,16 +86,5 @@ namespace Code_Pattern___Task_1.Model
             }
         }
 
-        private List<ICustomer> PopulateDummyDataCustomer(List<ICustomer> customerList)
-        {
-            customerList.Add(new Customer { FirstName = "Micke", LastName = "Wessén", PhoneNumber = 0738142090});
-            return customerList;
-        }
-
-        private List<IAnimal> PopulateDummyDataAnimal(List<IAnimal> animalList)
-        {
-            animalList.Add(new Animal { Name = "Maskot" });
-            return animalList;
-        }
     }
 }
