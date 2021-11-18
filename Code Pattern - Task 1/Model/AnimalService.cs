@@ -19,9 +19,9 @@ namespace Code_Pattern___Task_1.Model
             //    "Dog",
             //    "Elephant"
             //};
-   
+
+            var animal = new Animal();
             {
-                var animal = new Animal();
                 Console.WriteLine("Enter the pets name");
                 animal.Name = Console.ReadLine();
                 Console.WriteLine("Choose which type of animal");

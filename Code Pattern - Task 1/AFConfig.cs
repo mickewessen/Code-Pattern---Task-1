@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 namespace Code_Pattern___Task_1
 {
     public static class AFConfig
-    {        public static IContainer Configure()
+    {        
+        public static IContainer Configure()
         {
             var builder = new ContainerBuilder();
 
@@ -24,7 +25,6 @@ namespace Code_Pattern___Task_1
             builder.RegisterType<Reciept>().As<IReciept>();
             builder.RegisterType<DummyData>().As<DummyData>();
             builder.RegisterType<ReturnData>().As<ReturnData>();
-
 
             return builder.Build();
         }

@@ -9,8 +9,7 @@ namespace Code_Pattern___Task_1.Interfaces
     public interface IAnimalCheckedIn
     {
         public DateTime CheckedInDate { get; set; }
-        public IAnimal CheckedInAnimal { get; set; }
-        public bool isCheckedIn { get; set; }
-
+        public IAnimal Animal { get; set; }
+        public string isCheckedIn { get; set; }
     }
 }

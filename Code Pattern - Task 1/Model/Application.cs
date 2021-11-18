@@ -9,6 +9,15 @@ namespace Code_Pattern___Task_1.Model
 {
     public class Application : IApplication
     {
+
+        public ICustomer customer;
+        public CustomerService customerService;
+        public IMenu menu;
+        public IAnimal animal;
+        public AnimalService animalService;
+        public DummyData dummydata;
+        public ReturnData returnData;
+
         public Application(IMenu menu, IAnimal animal, ICustomer customer, DummyData dummydata, ReturnData returnData, CustomerService customerService, AnimalService animalService)
         {
             this.menu = menu;
@@ -19,14 +28,6 @@ namespace Code_Pattern___Task_1.Model
             this.customerService = customerService;
             this.animalService = animalService;
         }
-
-        public ICustomer customer { get; set; }
-        public CustomerService customerService { get; set; }
-        public IMenu menu { get; set; }
-        public IAnimal animal { get; set; }
-        public AnimalService animalService { get; set; }
-        public DummyData dummydata { get; set; }
-        public ReturnData returnData { get; set; }
 
 
         public void Run()

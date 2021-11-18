@@ -20,22 +20,21 @@ namespace Code_Pattern___Task_1.Model
 
         public void ReturnCustomerData(List<ICustomer> customerList)
         {
-
             foreach (var customer in customerList)
             {
-                Console.WriteLine($"Customer:{customer.FirstName} {customer.LastName} - {customer.PhoneNumber}");
+                Console.WriteLine($"Customer: {customer.FirstName} {customer.LastName} - Phonenumber: +46{customer.PhoneNumber}");
             }
             Console.Read();
         }
 
         public void ReturnRecieptData(List<IReciept> recieptList)
         {
-
             foreach (var reciept in recieptList)
             {
                 Console.WriteLine($"Date: {reciept.RecieptDate} - Customer: {reciept.Customer} - Pet: {reciept.Animal} - Price: {reciept.Price}kr");
             }
             Console.Read();
         }
+
     }
 }
