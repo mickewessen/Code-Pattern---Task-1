@@ -13,8 +13,17 @@ namespace Code_Pattern___Task_1.Model
         {
             foreach (var animal in animalList)
             {                
-                Console.WriteLine($"Petname: {animal.Name} - Type of pet: {animal.TypeOfAnimal}");
+                Console.WriteLine($"Petname: {animal.Name} - Type of pet: {animal.TypeOfAnimal} - Status: {animal.IsCheckedIn}" );
             }            
+            Console.Read();
+        }
+
+        public void ReturnAnimalDataCheckedInStatus(List<IAnimal> animalList)
+        {
+            foreach (var animal in animalList.Where(x=>x.IsCheckedIn== "Checked in"))
+            {
+                Console.WriteLine($"Petname: {animal.Name} - Type of pet: {animal.TypeOfAnimal} - Status: {animal.IsCheckedIn}");
+            }
             Console.Read();
         }
 

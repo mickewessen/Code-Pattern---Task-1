@@ -73,6 +73,7 @@ namespace Code_Pattern___Task_1.Model
                     case "6":
                         return true;
                     case "7":
+                        returnData.ReturnAnimalDataCheckedInStatus(animalList);
                         return true;
                     case "8":
                         return true;

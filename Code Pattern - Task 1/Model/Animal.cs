@@ -12,5 +12,7 @@ namespace Code_Pattern___Task_1.Model
         public string Name { get; set; }
         public string TypeOfAnimal { get; set; }
 
+        public string IsCheckedIn { get; set; }
+
     }
 }
