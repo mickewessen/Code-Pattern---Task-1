@@ -9,7 +9,12 @@ namespace Code_Pattern___Task_1.Model
 {
     public class AnimalService
     {
+        public ReturnData data;
 
+        public AnimalService(ReturnData data)
+        {
+            this.data = data;
+        }
 
         //Register and save a new Animal to a list   
         public List<IAnimal> RegisterAnimal(List<IAnimal> animals)
@@ -62,6 +67,29 @@ namespace Code_Pattern___Task_1.Model
             Console.WriteLine("Animal saved - press any key");
             Console.Read();
             return animals;
+        }
+
+        public void CheckOutAnimal(List<IAnimal> animalList)
+        {
+            Console.WriteLine("Please choose a pet to check out");
+            foreach (var checkedInAnimals in animalList.Where(x=>x.IsCheckedIn==("Checked in")))
+            {
+                Console.WriteLine($"{checkedInAnimals.Name}, {checkedInAnimals.TypeOfAnimal}, {checkedInAnimals.IsCheckedIn}");
+            }
+            var input = Console.ReadLine();
+            Int32.TryParse(input, out int output);
+            var status = animalList[output - 1];
+            status.IsCheckedIn = "Not Checked in";
+        }
+
+        public void CheckInAnimal(List<IAnimal> animalList)
+        {
+            Console.WriteLine("Please choose a pet to check in");
+            foreach (var notCheckedInAnimals in animalList.Where(x=>x.IsCheckedIn==("Not Checked in")))
+            {
+                Console.WriteLine($"{notCheckedInAnimals.Name}, {notCheckedInAnimals.TypeOfAnimal}, {notCheckedInAnimals.IsCheckedIn}");
+            }
+            Console.Read();
         }
     }
 }

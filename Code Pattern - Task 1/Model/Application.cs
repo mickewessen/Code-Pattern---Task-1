@@ -70,17 +70,27 @@ namespace Code_Pattern___Task_1.Model
 
                     case "5":
                         return true;
+
                     case "6":
+                        //Check in animal
+                        animalService.CheckInAnimal(animalList);
                         return true;
+
                     case "7":
+                        //Check out animal
+                        animalService.CheckOutAnimal(animalList);
+                        return true;
+
+                    case "8":
                         returnData.ReturnAnimalDataCheckedInStatus(animalList);
                         return true;
-                    case "8":
-                        return true;
                     case "9":
-                        returnData.ReturnRecieptData(recieptList);
+                        //Add services
                         return true;
                     case "10":
+                        returnData.ReturnRecieptData(recieptList);
+                        return true;
+                    case "11":
                         return false;
                     default:
                         return true;
