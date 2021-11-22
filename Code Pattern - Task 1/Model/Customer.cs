@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Code_Pattern___Task_1.Model
 {
+
     public class Customer : ICustomer
     { 
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int PhoneNumber { get; set; }
-        public List<IAnimal> customerAnimals { get; set; }        
+        public IAnimal? customerAnimals { get; set; }        
 
     }
 }

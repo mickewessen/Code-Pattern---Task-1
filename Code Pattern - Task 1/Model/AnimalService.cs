@@ -9,12 +9,6 @@ namespace Code_Pattern___Task_1.Model
 {
     public class AnimalService
     {
-        public ReturnData data;
-
-        public AnimalService(ReturnData data)
-        {
-            this.data = data;
-        }
 
         //Register and save a new Animal to a list   
         public List<IAnimal> RegisterAnimal(List<IAnimal> animals)
@@ -76,7 +70,8 @@ namespace Code_Pattern___Task_1.Model
             {
                 Console.WriteLine($"{checkedInAnimals.Name}, {checkedInAnimals.TypeOfAnimal}, {checkedInAnimals.IsCheckedIn}");
             }
-            var input = Console.ReadLine();
+
+            var input = Console.ReadLine();                
             Int32.TryParse(input, out int output);
             var status = animalList[output - 1];
             status.IsCheckedIn = "Not Checked in";
@@ -85,11 +80,41 @@ namespace Code_Pattern___Task_1.Model
         public void CheckInAnimal(List<IAnimal> animalList)
         {
             Console.WriteLine("Please choose a pet to check in");
-            foreach (var notCheckedInAnimals in animalList.Where(x=>x.IsCheckedIn==("Not Checked in")))
+            foreach (var notCheckedInAnimals in animalList.Where(x => x.IsCheckedIn == ("Not Checked in")))
             {
                 Console.WriteLine($"{notCheckedInAnimals.Name}, {notCheckedInAnimals.TypeOfAnimal}, {notCheckedInAnimals.IsCheckedIn}");
             }
+            var input = Console.ReadLine();
+            Int32.TryParse(input, out int output);
+            var status = animalList[output - 1];
+            status.IsCheckedIn = "Checked in";
+        }
+
+        public void AddServicesToAnimal(List<IAnimalExtraServices> serviceList, List<IAnimal> animalList)
+        {
+            Console.WriteLine("Please pick a animal");
+            foreach (var animal in animalList)
+            {
+                Console.WriteLine($"{animal.Name}, {animal.TypeOfAnimal}");
+            }
+            var animalinput = Console.ReadLine();
+            Int32.TryParse(animalinput, out int animaloutput);
+            var choosenAnimal = animalList[animaloutput - 1];
+
+            Console.WriteLine("Please pick a service to add to your pet");
+            foreach (var service in serviceList)
+            {
+                Console.WriteLine($"{service.NameOfService}, {service.PriceOfService}");
+            }
+            var serviceInput = Console.ReadLine();
+            Int32.TryParse(serviceInput, out int serviceOutput);
+            var choosenService = serviceList[serviceOutput - 1];
+
+            choosenAnimal.extraService = choosenService;
+            Console.WriteLine($"Data saved: {choosenService.NameOfService} is now added to {choosenAnimal.Name} at the expense of {choosenService.PriceOfService}");
+            Console.WriteLine("Press any key to return to main menu");
             Console.Read();
         }
+
     }
 }

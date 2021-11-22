@@ -22,10 +22,11 @@ namespace Code_Pattern___Task_1.Model
             return animalList;
         }
 
-        public List<IReciept> PopulateDummyDataReciept(List<IReciept> recieptList)
+        public List<IAnimalExtraServices> PopulateDummyDataServices(List<IAnimalExtraServices> serviceList)
         {
-            recieptList.Add(new Reciept { RecieptDate = DateTime.Now, Customer = "Micke", Animal = "Mascot", Price = 10 });
-            return recieptList;
+            serviceList.Add(new AnimalExtraServices { NameOfService = "Bathing", PriceOfService = 10 });
+            serviceList.Add(new AnimalExtraServices { NameOfService = "Claw cutting", PriceOfService = 5 });
+            return serviceList;  
         }
     }
 }

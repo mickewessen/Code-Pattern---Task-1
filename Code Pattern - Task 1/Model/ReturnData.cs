@@ -14,7 +14,8 @@ namespace Code_Pattern___Task_1.Model
             foreach (var animal in animalList)
             {                
                 Console.WriteLine($"Petname: {animal.Name} - Type of pet: {animal.TypeOfAnimal} - Status: {animal.IsCheckedIn}" );
-            }            
+            }
+            Console.WriteLine("Press any key to return to menu");
             Console.Read();
         }
 
@@ -24,6 +25,7 @@ namespace Code_Pattern___Task_1.Model
             {
                 Console.WriteLine($"Petname: {animal.Name} - Type of pet: {animal.TypeOfAnimal} - Status: {animal.IsCheckedIn}");
             }
+            Console.WriteLine("Press any key to return to menu");
             Console.Read();
         }
 
@@ -31,19 +33,40 @@ namespace Code_Pattern___Task_1.Model
         {
             foreach (var customer in customerList)
             {
-                Console.WriteLine($"Customer: {customer.FirstName} {customer.LastName} - Phonenumber: +46{customer.PhoneNumber}");
+                if(customer.customerAnimals == null)
+                {
+                    var message = "No animal";
+                    Console.WriteLine($"Customer: {customer.FirstName} {customer.LastName} - Phonenumber: +46{customer.PhoneNumber}, {message}");
+                }
+                else
+                {
+                    Console.WriteLine($"Customer: {customer.FirstName} {customer.LastName} - Phonenumber: +46{customer.PhoneNumber}, {customer.customerAnimals.Name}");
+                }
+                
             }
+            Console.WriteLine("Press any key to return to menu");
             Console.Read();
         }
 
-        public void ReturnRecieptData(List<IReciept> recieptList)
+        public void ReturnAnimalServiceData(List<IAnimalExtraServices> serviceList)
         {
-            foreach (var reciept in recieptList)
+            foreach (var service in serviceList)
             {
-                Console.WriteLine($"Date: {reciept.RecieptDate} - Customer: {reciept.Customer} - Pet: {reciept.Animal} - Price: {reciept.Price}kr");
+                Console.WriteLine($"Service: {service.NameOfService} - Price: {service.PriceOfService}");
             }
+            Console.WriteLine("Press any key to return to menu");
             Console.Read();
         }
+
+        //public void ReturnRecieptData(List<IReciept> recieptList)
+        //{
+        //    foreach (var reciept in recieptList)
+        //    {
+        //        Console.WriteLine($"Date: {reciept.RecieptDate} - Customer: {reciept.Customer} - Pet: {reciept.Animal} - Price: {reciept.Price}kr");
+        //    }
+        //    Console.WriteLine("Press any key to return to menu");
+        //    Console.Read();
+        //}
 
     }
 }
