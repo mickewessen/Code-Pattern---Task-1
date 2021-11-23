@@ -54,7 +54,7 @@ namespace Code_Pattern___Task_1.Model
             return customers;
         }
 
-        //Connect a animal to a customer
+        //Connect an animal to a customer
         public void ConnectCustomerToAnimal(List<IAnimal> animalList, List<ICustomer> customerList)
         {
             Console.Clear();
@@ -65,23 +65,33 @@ namespace Code_Pattern___Task_1.Model
                 Console.WriteLine($"{customer.FirstName}, {customer.LastName}");
             }
 
-            var customerInput = Console.ReadLine();
-            Int32.TryParse(customerInput, out int customerOutput);
-            var choosenCustomer = customerList[customerOutput - 1];
-
+            var customerInputAsString = Console.ReadLine();
+            int customerInputAsInt;
+            while((!int.TryParse(customerInputAsString, out customerInputAsInt) || (customerInputAsInt > customerList.Count) || (customerInputAsInt < 0)))
+            {
+                Console.WriteLine($"Please enter a valid number between 1 and {customerList.Count}");
+                customerInputAsString = Console.ReadLine();
+            }
+            var choosenCustomer = customerList[customerInputAsInt - 1];
             Console.Clear();
+
             Console.WriteLine("Please pick a animal");
             foreach (var animal in animalList)
             {
                 Console.WriteLine($"{animal.Name}, {animal.TypeOfAnimal}");
             }
-            var animalinput = Console.ReadLine();
-            Int32.TryParse(animalinput, out int animaloutput);
-            var choosenAnimal = animalList[animaloutput - 1];
+            var animalInputAsString = Console.ReadLine();
+            int animalInputAsInt;
+            while ((!int.TryParse(animalInputAsString, out animalInputAsInt)) || (animalInputAsInt > animalList.Count) || (animalInputAsInt < 0))
+            {
+                Console.WriteLine($"Please enter a valid number between 1 and {animalList.Count}");
+                animalInputAsString = Console.ReadLine();
+            }
+            var choosenAnimal = animalList[animalInputAsInt - 1];
 
             //Sets the choosen customer to the choosen animal
             choosenCustomer.customerAnimals = choosenAnimal;
-
+            Console.Clear();
             Console.WriteLine($"Data saved: {choosenCustomer.FirstName} {choosenCustomer.LastName} is now connected with {choosenAnimal.Name}");
             Console.WriteLine("Press any key to return to main menu");
             Console.Read();

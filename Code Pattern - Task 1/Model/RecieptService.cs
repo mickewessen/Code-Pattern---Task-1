@@ -32,7 +32,7 @@ namespace Code_Pattern___Task_1.Model
             {
                 Console.WriteLine($"Date & Time {DateTime.Now}");
                 Console.WriteLine($"Petname: {choosenCustomer.customerAnimals.Name}");
-                Console.WriteLine($"Petstatus: {choosenCustomer.customerAnimals.IsCheckedIn}");
+                Console.WriteLine($"Petstatus: {choosenCustomer.customerAnimals.IsCheckedIn = "Checked out"}");
                 if (choosenCustomer.customerAnimals.extraService == null)
                 {
                     Console.WriteLine($"Extra services: 0kr");

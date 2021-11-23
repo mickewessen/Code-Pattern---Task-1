@@ -98,9 +98,15 @@ namespace Code_Pattern___Task_1.Model
                 Console.WriteLine($"{checkedInAnimals.Name}, {checkedInAnimals.TypeOfAnimal}, {checkedInAnimals.IsCheckedIn}");
             }
 
-            var input = Console.ReadLine();                
-            Int32.TryParse(input, out int output);
-            var status = animalList[output - 1];
+            var checkOutInputAsString = Console.ReadLine();
+            int checkOutInputAsInt;
+            while ((!int.TryParse(checkOutInputAsString, out checkOutInputAsInt)) || (checkOutInputAsInt > animalList.Count) || (checkOutInputAsInt < 0))
+            {
+                Console.WriteLine($"Please enter a valid number");
+                checkOutInputAsString = Console.ReadLine();
+            }
+
+            var status = animalList[checkOutInputAsInt - 1];
             status.IsCheckedIn = "Not Checked in";
         }
 
@@ -111,34 +117,54 @@ namespace Code_Pattern___Task_1.Model
             {
                 Console.WriteLine($"{notCheckedInAnimals.Name}, {notCheckedInAnimals.TypeOfAnimal}, {notCheckedInAnimals.IsCheckedIn}");
             }
-            var input = Console.ReadLine();
-            Int32.TryParse(input, out int output);
-            var status = animalList[output - 1];
+            var checkInInputAsString = Console.ReadLine();
+            int checkInInputAsInt;
+            while ((!int.TryParse(checkInInputAsString, out checkInInputAsInt)) || (checkInInputAsInt > animalList.Count) || (checkInInputAsInt < 0))
+            {
+                Console.WriteLine($"Please enter a valid number");
+                checkInInputAsString = Console.ReadLine();
+            }
+            var status = animalList[checkInInputAsInt - 1];
             status.IsCheckedIn = "Checked in";
         }
 
+
         public void AddServicesToAnimal(List<IAnimalExtraServices> serviceList, List<IAnimal> animalList)
         {
+            Console.Clear();
             Console.WriteLine("Please pick a animal");
             foreach (var animal in animalList)
             {
                 Console.WriteLine($"{animal.Name}, {animal.TypeOfAnimal}");
             }
-            var animalinput = Console.ReadLine();
-            Int32.TryParse(animalinput, out int animaloutput);
-            var choosenAnimal = animalList[animaloutput - 1];
+            var animalinputAsString = Console.ReadLine();
+            int animalinputAsInt;
+            while ((!int.TryParse(animalinputAsString, out animalinputAsInt)) || (animalinputAsInt > animalList.Count) || (animalinputAsInt < 0))
+            {
+                Console.WriteLine($"Please enter a valid number");
+                animalinputAsString = Console.ReadLine();
+            }
+
+            var choosenAnimal = animalList[animalinputAsInt - 1];
+            Console.Clear();
 
             Console.WriteLine("Please pick a service to add to your pet");
             foreach (var service in serviceList)
             {
                 Console.WriteLine($"{service.NameOfService}, {service.PriceOfService}");
             }
-            var serviceInput = Console.ReadLine();
-            Int32.TryParse(serviceInput, out int serviceOutput);
-            var choosenService = serviceList[serviceOutput - 1];
-
+            var serviceInputAsString = Console.ReadLine();
+            int serviceInputAsInt;
+            while ((!int.TryParse(serviceInputAsString, out serviceInputAsInt)) || (serviceInputAsInt > animalList.Count) || (serviceInputAsInt < 0))
+            {
+                Console.WriteLine($"Please enter a valid number");
+                serviceInputAsString = Console.ReadLine();
+            }
+            var choosenService = serviceList[serviceInputAsInt - 1];
             choosenAnimal.extraService = choosenService;
-            Console.WriteLine($"Data saved: {choosenService.NameOfService} is now added to {choosenAnimal.Name} at the expense of {choosenService.PriceOfService}");
+
+            Console.Clear();
+            Console.WriteLine($"Data saved: {choosenService.NameOfService} is now added to {choosenAnimal.Name} at the expense of {choosenService.PriceOfService}kr");
             Console.WriteLine("Press any key to return to main menu");
             Console.Read();
         }

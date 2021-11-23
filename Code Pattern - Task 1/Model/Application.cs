@@ -199,7 +199,7 @@ namespace Code_Pattern___Task_1.Model
                         //Return a list of all checked in animals
                         returnData.ReturnAnimalDataCheckedInStatus(animalList);
                         return true;
-                    case "9":
+                    case "9":                    
                         //Add services to animal
                         animalService.AddServicesToAnimal(serviceList, animalList);
                         return true;

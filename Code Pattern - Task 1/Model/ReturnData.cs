@@ -11,6 +11,7 @@ namespace Code_Pattern___Task_1.Model
     {
         public void ReturnAnimalData(List<IAnimal> animalList)
         {
+            Console.Clear();
             foreach (var animal in animalList)
             {                
                 Console.WriteLine($"Petname: {animal.Name} - Type of pet: {animal.TypeOfAnimal} - Status: {animal.IsCheckedIn}" );
@@ -21,6 +22,7 @@ namespace Code_Pattern___Task_1.Model
 
         public void ReturnAnimalDataCheckedInStatus(List<IAnimal> animalList)
         {
+            Console.Clear();
             foreach (var animal in animalList.Where(x=>x.IsCheckedIn== "Checked in"))
             {
                 Console.WriteLine($"Petname: {animal.Name} - Type of pet: {animal.TypeOfAnimal} - Status: {animal.IsCheckedIn}");
@@ -31,6 +33,7 @@ namespace Code_Pattern___Task_1.Model
 
         public void ReturnCustomerData(List<ICustomer> customerList)
         {
+            Console.Clear();
             foreach (var customer in customerList)
             {
                 if(customer.customerAnimals == null)
@@ -50,6 +53,7 @@ namespace Code_Pattern___Task_1.Model
 
         public void ReturnAnimalServiceData(List<IAnimalExtraServices> serviceList)
         {
+            Console.Clear();
             foreach (var service in serviceList)
             {
                 Console.WriteLine($"Service: {service.NameOfService} - Price: {service.PriceOfService}");
