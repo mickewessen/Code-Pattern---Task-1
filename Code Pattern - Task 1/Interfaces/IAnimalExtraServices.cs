@@ -6,6 +6,5 @@ namespace Code_Pattern___Task_1.Interfaces
     {
         public string NameOfService { get; set; }
         public decimal PriceOfService { get; set; }
-        public IAnimal SelectedAnimal { get; set; }
     }
 }

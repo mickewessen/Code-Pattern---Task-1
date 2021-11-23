@@ -17,8 +17,9 @@ namespace Code_Pattern___Task_1.Model
         public AnimalService animalService;
         public DummyData dummydata;
         public ReturnData returnData;
+        public RecieptService recieptService;
 
-        public Application(IMenu menu, IAnimal animal, ICustomer customer, DummyData dummydata, ReturnData returnData, CustomerService customerService, AnimalService animalService)
+        public Application(IMenu menu, IAnimal animal, ICustomer customer, DummyData dummydata, ReturnData returnData, CustomerService customerService, AnimalService animalService, RecieptService recieptService)
         {
             this.menu = menu;
             this.animal = animal;
@@ -27,6 +28,7 @@ namespace Code_Pattern___Task_1.Model
             this.returnData = returnData;
             this.customerService = customerService;
             this.animalService = animalService;
+            this.recieptService = recieptService;
         }
 
 
@@ -203,8 +205,8 @@ namespace Code_Pattern___Task_1.Model
                         return true;
                     case "10":
                         //Get reciept for checked out animal
-                        //returnData.ReturnRecieptData(recieptList);
-                        //return true;
+                        recieptService.GetAllReciepts(customerList);
+                        return true;
                     case "11":
                         return false;
                     default:

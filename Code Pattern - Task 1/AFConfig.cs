@@ -21,8 +21,8 @@ namespace Code_Pattern___Task_1
             builder.RegisterType<CustomerService>().As<CustomerService>();
             builder.RegisterType<Animal>().As<IAnimal>();
             builder.RegisterType<AnimalService>().As<AnimalService>();
-            builder.RegisterType<Menu>().As<IMenu>();
-            builder.RegisterType<Reciept>().As<IReciept>();
+            builder.RegisterType<Menu>().As<IMenu>(); 
+            builder.RegisterType<RecieptService>().As<RecieptService>();
             builder.RegisterType<DummyData>().As<DummyData>();
             builder.RegisterType<ReturnData>().As<ReturnData>();
 

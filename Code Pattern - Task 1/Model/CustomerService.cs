@@ -33,9 +33,9 @@ namespace Code_Pattern___Task_1.Model
                 while (string.IsNullOrWhiteSpace(lname))
                 {
                     Console.WriteLine("Lastname cannot be empty, try again");
-                    fname = Console.ReadLine();
+                    lname = Console.ReadLine();
                 }
-                customer.LastName = fname;
+                customer.LastName = lname;
 
                 //Check if phonenumber is an int and not null
                 Console.Clear();

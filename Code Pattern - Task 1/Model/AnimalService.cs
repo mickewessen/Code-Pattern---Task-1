@@ -55,7 +55,7 @@ namespace Code_Pattern___Task_1.Model
                 //Take userinput, check if the number is out of range and convert to int -1 for animal type
                 var userInputTypeOfAnimalAsString = Console.ReadLine();
                 int userInPutAnimalTypeAsInt;
-                while ((!int.TryParse(userInputTypeOfAnimalAsString, out userInPutAnimalTypeAsInt)) ||(userInPutAnimalTypeAsInt > typeofanimal.Count))
+                while ((!int.TryParse(userInputTypeOfAnimalAsString, out userInPutAnimalTypeAsInt)) ||(userInPutAnimalTypeAsInt > typeofanimal.Count) || (userInPutAnimalTypeAsInt < 0))
                 {
                     Console.WriteLine("Please enter a valid number");
                     userInputTypeOfAnimalAsString = Console.ReadLine();
@@ -74,7 +74,7 @@ namespace Code_Pattern___Task_1.Model
                 var userInputCheckedInStatusAsString = Console.ReadLine();
                 int userInputCheckedInStatusAsInt;
 
-                while ((!int.TryParse(userInputCheckedInStatusAsString, out userInputCheckedInStatusAsInt)) || (userInputCheckedInStatusAsInt > checkedInStatus.Count))
+                while ((!int.TryParse(userInputCheckedInStatusAsString, out userInputCheckedInStatusAsInt)) || (userInputCheckedInStatusAsInt > checkedInStatus.Count) || (userInputCheckedInStatusAsInt < 0))
                 {
                     Console.WriteLine("Please enter a valid number");
                     userInputCheckedInStatusAsString = Console.ReadLine();                    

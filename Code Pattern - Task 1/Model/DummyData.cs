@@ -29,31 +29,5 @@ namespace Code_Pattern___Task_1.Model
             return serviceList;  
         }
 
-        //public List<IReciept> PopulateDummyDataReciept(List<IReciept> recieptList)
-        //{
-        //    recieptList.Add(new Reciept
-        //    {
-        //        RecieptDate = DateTime.Now,
-        //        RecieptTotalPrice = 100,
-        //        RecieptCustomer =
-        //        {
-        //            FirstName = "Test",
-        //            LastName = "Test2",
-        //            PhoneNumber=123456,
-        //            customerAnimals =
-        //            {
-        //                Name="TestAnimal",
-        //                TypeOfAnimal ="Cat",
-        //                IsCheckedIn="Not checked in",
-        //                extraService =
-        //                {
-        //                    NameOfService ="Bathing",
-        //                    PriceOfService=10 
-        //                }
-        //            }
-        //        }
-        //    });
-        //        return recieptList;
-        //}
     }
 }
