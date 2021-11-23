@@ -40,6 +40,7 @@ namespace Code_Pattern___Task_1.Model
             serviceList = dummydata.PopulateDummyDataServices(serviceList);
 
 
+
             #region Menu with arrows (not working :/)
             //string prompt = "Dog Kennel";
             //string[] options =
@@ -178,6 +179,7 @@ namespace Code_Pattern___Task_1.Model
                         return true;
 
                     case "5":
+                        //Binds a customer to a animal
                         customerService.ConnectCustomerToAnimal(animalList, customerList);
                         return true;
 
@@ -191,7 +193,8 @@ namespace Code_Pattern___Task_1.Model
                         animalService.CheckOutAnimal(animalList);
                         return true;
 
-                    case "8":                       
+                    case "8":           
+                        //Return a list of all checked in animals
                         returnData.ReturnAnimalDataCheckedInStatus(animalList);
                         return true;
                     case "9":
@@ -201,7 +204,7 @@ namespace Code_Pattern___Task_1.Model
                     case "10":
                         //Get reciept for checked out animal
                         //returnData.ReturnRecieptData(recieptList);
-                        return true;
+                        //return true;
                     case "11":
                         return false;
                     default:

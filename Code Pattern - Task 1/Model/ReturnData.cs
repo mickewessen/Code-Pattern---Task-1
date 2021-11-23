@@ -62,7 +62,11 @@ namespace Code_Pattern___Task_1.Model
         //{
         //    foreach (var reciept in recieptList)
         //    {
-        //        Console.WriteLine($"Date: {reciept.RecieptDate} - Customer: {reciept.Customer} - Pet: {reciept.Animal} - Price: {reciept.Price}kr");
+        //        Console.WriteLine($"Date: " +
+        //            $"{reciept.RecieptDate} - " +
+        //            $"Customer: {reciept.RecieptCustomer.FirstName} {reciept.RecieptCustomer.LastName} - " +
+        //            $"Pet: {reciept.RecieptCustomer.customerAnimals.Name} - {reciept.RecieptCustomer.customerAnimals.IsCheckedIn} " +
+        //            $"Price: {reciept.RecieptTotalPrice}kr");
         //    }
         //    Console.WriteLine("Press any key to return to menu");
         //    Console.Read();

@@ -9,17 +9,44 @@ namespace Code_Pattern___Task_1.Model
 {
     public class CustomerService
     {
+
         //Register and save a new User to a list 
         public List<ICustomer> RegisterCustomer(List<ICustomer> customers)
         { 
             {
                 var customer = new Customer();
+                //Enter firstname and check if input null or whitespace
+                Console.Clear();
                 Console.WriteLine("Enter your first name");
-                customer.FirstName = Console.ReadLine();
+                var fname = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(fname))
+                {
+                    Console.WriteLine("Firstname cannot be empty, try again");
+                    fname = Console.ReadLine();
+                }
+                customer.FirstName = fname;
+
+                //Enter lastname and check if input null or whitespace
+                Console.Clear();
                 Console.WriteLine("Enter your last name");
-                customer.LastName = Console.ReadLine();
+                var lname = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(lname))
+                {
+                    Console.WriteLine("Lastname cannot be empty, try again");
+                    fname = Console.ReadLine();
+                }
+                customer.LastName = fname;
+
+                //Check if phonenumber is an int and not null
+                Console.Clear();
                 Console.WriteLine("Enter your phonenumber");
-                customer.PhoneNumber = Convert.ToInt32(Console.ReadLine());        
+                var phoneNumberAsString = Console.ReadLine();
+                int phoneNumber;
+                while (!int.TryParse(phoneNumberAsString, out phoneNumber))
+                {
+                    Console.WriteLine("Invalid input, please enter a valid phonenumber");
+                    phoneNumberAsString = Console.ReadLine();                   
+                }
                 customers.Add(customer);
             }
             Console.WriteLine("Customer saved - press any key");
@@ -30,7 +57,9 @@ namespace Code_Pattern___Task_1.Model
         //Connect a animal to a customer
         public void ConnectCustomerToAnimal(List<IAnimal> animalList, List<ICustomer> customerList)
         {
-            Console.WriteLine("Please pick a customer");
+            Console.Clear();
+            Console.WriteLine("Please pick a customer");    
+
             foreach (var customer in customerList)
             {
                 Console.WriteLine($"{customer.FirstName}, {customer.LastName}");
@@ -40,6 +69,7 @@ namespace Code_Pattern___Task_1.Model
             Int32.TryParse(customerInput, out int customerOutput);
             var choosenCustomer = customerList[customerOutput - 1];
 
+            Console.Clear();
             Console.WriteLine("Please pick a animal");
             foreach (var animal in animalList)
             {

@@ -4,9 +4,8 @@ namespace Code_Pattern___Task_1.Interfaces
 {
     public interface IAnimalExtraServices
     {
-        string NameOfService { get; set; }
-        decimal PriceOfService { get; set; }
-        IReciept Reciept { get; set; }
-        IAnimal SelectedAnimal { get; set; }
+        public string NameOfService { get; set; }
+        public decimal PriceOfService { get; set; }
+        public IAnimal SelectedAnimal { get; set; }
     }
 }

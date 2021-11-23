@@ -31,29 +31,55 @@ namespace Code_Pattern___Task_1.Model
 
             var animal = new Animal();
             {
+
+                //Check if pets name is null
+                Console.Clear();
                 Console.WriteLine("Enter the pets name");
-                animal.Name = Console.ReadLine();
-                Console.WriteLine("Choose which type of animal");
-                foreach (var item in typeofanimal)
+                var animalName = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(animalName))
                 {
-                    Console.WriteLine(item);
+                    Console.WriteLine("Name cannot be empty, try again");
+                    animalName = Console.ReadLine();
                 }
-                
-                //Take userinput and convert to int -1 for animal type
-                var userInputTypeOfAnimal = Console.ReadLine();
-                Int32.TryParse(userInputTypeOfAnimal, out int inputAsInt);
-                var chosenAnimal = typeofanimal[inputAsInt-1];
+                animal.Name = animalName;
+
+                //List all pet types!
+                Console.Clear();
+                Console.WriteLine("Choose which type of animal");
+                foreach (var type in typeofanimal)
+                {
+                    Console.WriteLine($"{type}");
+                }
+
+
+                //Take userinput, check if the number is out of range and convert to int -1 for animal type
+                var userInputTypeOfAnimalAsString = Console.ReadLine();
+                int userInPutAnimalTypeAsInt;
+                while ((!int.TryParse(userInputTypeOfAnimalAsString, out userInPutAnimalTypeAsInt)) ||(userInPutAnimalTypeAsInt > typeofanimal.Count))
+                {
+                    Console.WriteLine("Please enter a valid number");
+                    userInputTypeOfAnimalAsString = Console.ReadLine();
+                }
+                var chosenAnimal = typeofanimal[userInPutAnimalTypeAsInt - 1];
                 animal.TypeOfAnimal = chosenAnimal;
 
-                //Take userinput and convert to int -1 for checked in status 
+                //Take userinput check if number is out of  range and convert to int -1 for checked in status 
+                Console.Clear();
                 Console.WriteLine("Do you want to check in the animal?");
-                foreach (var checkedItem in checkedInStatus)
+                foreach (var status in checkedInStatus)
                 {
-                    Console.WriteLine(checkedItem);
+                    Console.WriteLine($"{status}");
                 }
-                var userInputCheckedInStatus = Console.ReadLine();
-                Int32.TryParse(userInputCheckedInStatus, out int inputStatusAsInt);
-                var statusAnimal = checkedInStatus[inputStatusAsInt -1];
+
+                var userInputCheckedInStatusAsString = Console.ReadLine();
+                int userInputCheckedInStatusAsInt;
+
+                while ((!int.TryParse(userInputCheckedInStatusAsString, out userInputCheckedInStatusAsInt)) || (userInputCheckedInStatusAsInt > checkedInStatus.Count))
+                {
+                    Console.WriteLine("Please enter a valid number");
+                    userInputCheckedInStatusAsString = Console.ReadLine();                    
+                }
+                var statusAnimal = checkedInStatus[userInputCheckedInStatusAsInt - 1];
                 animal.IsCheckedIn = statusAnimal;
 
                 animals.Add(animal);
@@ -65,6 +91,7 @@ namespace Code_Pattern___Task_1.Model
 
         public void CheckOutAnimal(List<IAnimal> animalList)
         {
+            Console.Clear();
             Console.WriteLine("Please choose a pet to check out");
             foreach (var checkedInAnimals in animalList.Where(x=>x.IsCheckedIn==("Checked in")))
             {
