@@ -58,43 +58,51 @@ namespace Code_Pattern___Task_1.Model
         public void ConnectCustomerToAnimal(List<IAnimal> animalList, List<ICustomer> customerList)
         {
             Console.Clear();
-            Console.WriteLine("Please pick a customer");    
-
             foreach (var customer in customerList)
             {
                 Console.WriteLine($"{customer.FirstName}, {customer.LastName}");
             }
-
-            var customerInputAsString = Console.ReadLine();
-            int customerInputAsInt;
-            while((!int.TryParse(customerInputAsString, out customerInputAsInt) || (customerInputAsInt > customerList.Count) || (customerInputAsInt < 0)))
+            if (customerList.Count == 0)
             {
-                Console.WriteLine($"Please enter a valid number between 1 and {customerList.Count}");
-                customerInputAsString = Console.ReadLine();
+                Console.WriteLine("There is no customers registered yet, press enter to return to main menu");
+                Console.Read();
             }
-            var choosenCustomer = customerList[customerInputAsInt - 1];
-            Console.Clear();
-
-            Console.WriteLine("Please pick a animal");
-            foreach (var animal in animalList)
+            else
             {
-                Console.WriteLine($"{animal.Name}, {animal.TypeOfAnimal}");
-            }
-            var animalInputAsString = Console.ReadLine();
-            int animalInputAsInt;
-            while ((!int.TryParse(animalInputAsString, out animalInputAsInt)) || (animalInputAsInt > animalList.Count) || (animalInputAsInt < 0))
-            {
-                Console.WriteLine($"Please enter a valid number between 1 and {animalList.Count}");
-                animalInputAsString = Console.ReadLine();
-            }
-            var choosenAnimal = animalList[animalInputAsInt - 1];
+                Console.WriteLine("Please pick a customer");
+                var customerInputAsString = Console.ReadLine();
+                int customerInputAsInt;
+                while ((!int.TryParse(customerInputAsString, out customerInputAsInt) || (customerInputAsInt > customerList.Count) || (customerInputAsInt < 0)))
+                {
+                    Console.WriteLine($"Please enter a valid number between 1 and {customerList.Count}");
+                    customerInputAsString = Console.ReadLine();
+                }
+                var choosenCustomer = customerList[customerInputAsInt - 1];
+                Console.Clear();
 
-            //Sets the choosen customer to the choosen animal
-            choosenCustomer.customerAnimals = choosenAnimal;
-            Console.Clear();
-            Console.WriteLine($"Data saved: {choosenCustomer.FirstName} {choosenCustomer.LastName} is now connected with {choosenAnimal.Name}");
-            Console.WriteLine("Press any key to return to main menu");
-            Console.Read();
+                Console.WriteLine("Please pick a animal");
+                foreach (var animal in animalList)
+                {
+                    Console.WriteLine($"{animal.Name}, {animal.TypeOfAnimal}");
+                }
+                var animalInputAsString = Console.ReadLine();
+                int animalInputAsInt;
+                while ((!int.TryParse(animalInputAsString, out animalInputAsInt)) || (animalInputAsInt > animalList.Count) || (animalInputAsInt < 0))
+                {
+                    Console.WriteLine($"Please enter a valid number between 1 and {animalList.Count}");
+                    animalInputAsString = Console.ReadLine();
+                }
+                var choosenAnimal = animalList[animalInputAsInt - 1];
+
+                //Sets the choosen customer to the choosen animal
+                choosenCustomer.customerAnimals = choosenAnimal;
+                Console.Clear();
+                Console.WriteLine($"Data saved: {choosenCustomer.FirstName} {choosenCustomer.LastName} is now connected with {choosenAnimal.Name}");
+                Console.WriteLine("Press any key to return to main menu");
+                Console.Read();
+            }
+
+
         }
 
     }

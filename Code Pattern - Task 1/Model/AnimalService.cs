@@ -9,7 +9,6 @@ namespace Code_Pattern___Task_1.Model
 {
     public class AnimalService
     {
-
         //Register and save a new Animal to a list   
         public List<IAnimal> RegisterAnimal(List<IAnimal> animals)
         {
@@ -139,7 +138,7 @@ namespace Code_Pattern___Task_1.Model
             }
             var animalinputAsString = Console.ReadLine();
             int animalinputAsInt;
-            while ((!int.TryParse(animalinputAsString, out animalinputAsInt)) || (animalinputAsInt > animalList.Count) || (animalinputAsInt < 0))
+            while ((!int.TryParse(animalinputAsString, out animalinputAsInt)) || (animalinputAsInt > animalList.Count) || (animalinputAsInt <= 0))
             {
                 Console.WriteLine($"Please enter a valid number");
                 animalinputAsString = Console.ReadLine();
