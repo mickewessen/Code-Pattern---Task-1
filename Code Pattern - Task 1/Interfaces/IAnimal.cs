@@ -12,7 +12,6 @@ namespace Code_Pattern___Task_1.Interfaces
         public string Name { get; set; }
         public string TypeOfAnimal { get; set; }
         public string IsCheckedIn { get; set; }
-        public IAnimalExtraServices? extraService { get; set; }
-
+        public List<IAnimalExtraServices> extraServiceList { get; set; }
     }
 }

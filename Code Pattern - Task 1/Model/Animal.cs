@@ -13,6 +13,6 @@ namespace Code_Pattern___Task_1.Model
         public string TypeOfAnimal { get; set; }
 
         public string IsCheckedIn { get; set; }
-        public IAnimalExtraServices? extraService { get; set; }
+        public List<IAnimalExtraServices> extraServiceList { get; set; }
     }
 }

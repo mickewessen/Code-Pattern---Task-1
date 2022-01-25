@@ -33,7 +33,7 @@ namespace Code_Pattern___Task_1.Model
                 Console.WriteLine($"Date & Time {DateTime.Now}");
                 Console.WriteLine($"Petname: {choosenCustomer.customerAnimals.Name}");
                 Console.WriteLine($"Petstatus: {choosenCustomer.customerAnimals.IsCheckedIn = "Checked out"}");
-                if (choosenCustomer.customerAnimals.extraService == null)
+                if (choosenCustomer.customerAnimals.extraServiceList == null)
                 {
                     Console.WriteLine($"Extra services: 0kr");
                     decimal totalPrice = 100;
@@ -41,10 +41,21 @@ namespace Code_Pattern___Task_1.Model
                 }
                 else
                 {
-                    Console.WriteLine($"Extra services: {choosenCustomer.customerAnimals.extraService.NameOfService} {choosenCustomer.customerAnimals.extraService.PriceOfService}kr");
+                    Console.WriteLine("Extra services");
+                    foreach (var item in choosenCustomer.customerAnimals.extraServiceList)
+                    {
+                        Console.WriteLine($"{item.NameOfService} {item.PriceOfService}kr");
+                    }
                     Console.WriteLine($"Price per day: 100kr");
-                    decimal totalPrice = (choosenCustomer.customerAnimals.extraService.PriceOfService + 100);
-                    Console.WriteLine($"Totalprice: {totalPrice}kr ");
+
+                    decimal totalPrice = 0;
+
+                    foreach (var serviceCost in choosenCustomer.customerAnimals.extraServiceList)
+                    {
+                        totalPrice += serviceCost.PriceOfService;
+                    }
+
+                    Console.WriteLine($"Totalprice: {totalPrice+100}kr");                    
                 }
                 Console.Read();
             }

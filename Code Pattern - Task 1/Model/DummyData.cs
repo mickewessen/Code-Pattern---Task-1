@@ -17,8 +17,8 @@ namespace Code_Pattern___Task_1.Model
 
         public List<IAnimal> PopulateDummyDataAnimal(List<IAnimal> animalList)
         {
-            animalList.Add(new Animal { Name = "Maskot", TypeOfAnimal = "Dog", IsCheckedIn = "Not Checked in" });
-            animalList.Add(new Animal { Name = "Pelle", TypeOfAnimal = "Cat", IsCheckedIn = "Checked in" });
+            animalList.Add(new Animal { Name = "Maskot", TypeOfAnimal = "Dog", IsCheckedIn = "Not Checked in", extraServiceList = new List<IAnimalExtraServices>() });
+            animalList.Add(new Animal { Name = "Pelle", TypeOfAnimal = "Cat", IsCheckedIn = "Checked in", extraServiceList= new List<IAnimalExtraServices>() });
             return animalList;
         }
 

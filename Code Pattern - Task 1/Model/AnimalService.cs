@@ -9,6 +9,7 @@ namespace Code_Pattern___Task_1.Model
 {
     public class AnimalService
     {
+
         //Register and save a new Animal to a list   
         public List<IAnimal> RegisterAnimal(List<IAnimal> animals)
         {
@@ -61,6 +62,9 @@ namespace Code_Pattern___Task_1.Model
                 }
                 var chosenAnimal = typeofanimal[userInPutAnimalTypeAsInt - 1];
                 animal.TypeOfAnimal = chosenAnimal;
+                animal.extraServiceList = new List<IAnimalExtraServices>();
+
+                
 
                 //Take userinput check if number is out of  range and convert to int -1 for checked in status 
                 Console.Clear();
@@ -130,6 +134,7 @@ namespace Code_Pattern___Task_1.Model
 
         public void AddServicesToAnimal(List<IAnimalExtraServices> serviceList, List<IAnimal> animalList)
         {
+            
             Console.Clear();
             Console.WriteLine("Please pick a animal");
             foreach (var animal in animalList)
@@ -145,6 +150,7 @@ namespace Code_Pattern___Task_1.Model
             }
 
             var choosenAnimal = animalList[animalinputAsInt - 1];
+            
             Console.Clear();
 
             Console.WriteLine("Please pick a service to add to your pet");
@@ -158,9 +164,14 @@ namespace Code_Pattern___Task_1.Model
             {
                 Console.WriteLine($"Please enter a valid number");
                 serviceInputAsString = Console.ReadLine();
-            }
+            }            
             var choosenService = serviceList[serviceInputAsInt - 1];
-            choosenAnimal.extraService = choosenService;
+            choosenAnimal.extraServiceList.Add(choosenService);
+
+
+
+
+
 
             Console.Clear();
             Console.WriteLine($"Data saved: {choosenService.NameOfService} is now added to {choosenAnimal.Name} at the expense of {choosenService.PriceOfService}kr");
